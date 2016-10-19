@@ -2,10 +2,6 @@ import java.util.Scanner;
 
 public class Problem_1015 {
     public static void main(String[] args) {
-        test();
-    }
-
-    public static void test() {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         for (int i = 0; i < N; i += 1) {
