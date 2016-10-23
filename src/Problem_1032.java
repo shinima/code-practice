@@ -1,6 +1,7 @@
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
+@SuppressWarnings("Duplicates")
 public class Problem_1032 {
     public static void main(String[] args) {
         Scanner scanner;
