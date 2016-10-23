@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+@SuppressWarnings("Duplicates")
 public class Problem_1015 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

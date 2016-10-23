@@ -2,6 +2,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 public class Problem_1036 {
     public static void main(String[] args) {
         String[] dict = {"aaabc", "aaac", "abcc", "ac", "bcd", "cd"};
