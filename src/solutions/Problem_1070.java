@@ -1,3 +1,5 @@
+package solutions;
+
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
