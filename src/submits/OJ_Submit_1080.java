@@ -1,36 +1,11 @@
-package solutions;
+package submits;
 
-import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 @SuppressWarnings("Duplicates")
-public class Problem_1080 {
-    public static void naiveTest(String input) {
-        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes()));
-        int N = scanner.nextInt() + 1;
-        int M = scanner.nextInt();
-        int[] prices = new int[N];
-        for (int i = 0; i < N; i++) {
-            prices[i] = scanner.nextInt();
-        }
-
-        for (int i = 0; i < M; i++) {
-            int operation = scanner.nextInt();
-            int start = scanner.nextInt();
-            int end = scanner.nextInt();
-            int value = scanner.nextInt();
-            if (operation == 0) { // value是相对值
-                naiveUpdateDelta(prices, start, end, value);
-            } else { // value是绝对值
-                naiveUpdateValue(prices, start, end, value);
-            }
-        }
-        naiveSum(prices);
-//        System.out.println(naiveSum(prices));
-    }
-
-    public static void excitingTest(String input) {
-        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes()));
+public class OJ_Submit_1080 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt() + 1;
         int M = scanner.nextInt();
         int[] prices = new int[N];
@@ -50,8 +25,7 @@ public class Problem_1080 {
             } else { // value是绝对值
                 root.updateValue(start, end, value);
             }
-            root.getValue();
-//            System.out.println(root.getValue());
+            System.out.println(root.getValue());
         }
     }
 
@@ -63,14 +37,6 @@ public class Problem_1080 {
         LazyTag deltaTag;
         LazyTag valueTag;
         int value; // 结点的值. 对应prices[start...end]的和
-
-        public String toString() {
-            if (isLeaf()) {
-                return String.format("Node{%d = %d}", start, getValue());
-            } else {
-                return String.format("Node{%d...%d = %d}", start, end, getValue());
-            }
-        }
 
         Node(int[] prices) {
             this(prices, 0, prices.length - 1);
@@ -200,25 +166,5 @@ public class Problem_1080 {
         void clear() {
             this.set = false;
         }
-    }
-
-    private static void naiveUpdateDelta(int[] prices, int start, int end, int delta) {
-        for (int i = start; i <= end; i++) {
-            prices[i] += delta;
-        }
-    }
-
-    private static void naiveUpdateValue(int[] prices, int start, int end, int value) {
-        for (int i = start; i <= end; i++) {
-            prices[i] = value;
-        }
-    }
-
-    private static int naiveSum(int[] prices) {
-        int result = 0;
-        for (int p : prices) {
-            result += p;
-        }
-        return result;
     }
 }
