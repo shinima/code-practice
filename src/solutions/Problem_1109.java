@@ -1,11 +1,13 @@
 package solutions;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
-// todo TLE
+// AC
 public class Problem_1109 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String input = "5 29\n" +
                 "1 2 674\n" +
                 "2 3 249\n" +
@@ -37,15 +39,15 @@ public class Problem_1109 {
                 "2 4 14\n" +
                 "1 4 185";
         // Expected output: 92
-        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes()));
-        int N = scanner.nextInt();
-        int M = scanner.nextInt();
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        int N = readInt(in);
+        int M = readInt(in);
         RoutesManager manager = new RoutesManager();
         for (int i = 0; i < M; i++) {
             // 这次以1为起始下标吧
-            int start = scanner.nextInt();
-            int end = scanner.nextInt();
-            int distance = scanner.nextInt();
+            int start = readInt(in);
+            int end = readInt(in);
+            int distance = readInt(in);
             manager.add(start, end, distance);
         }
         boolean[] visited = new boolean[N + 1]; // 下标从1开始, 所以需要N+1的空间
@@ -140,4 +142,22 @@ public class Problem_1109 {
         }
     }
 
+    private static int readInt(InputStream in) throws IOException {
+        int result = 0;
+        boolean dig = false;
+
+        while (true) {
+            int c = in.read();
+            if (c == -1) {
+                break;
+            }
+            if (c >= '0' && c <= '9') {
+                result = result * 10 + (c - '0');
+                dig = true;
+            } else if (dig) {
+                break;
+            }
+        }
+        return result;
+    }
 }
