@@ -58,7 +58,7 @@ public class Problem_1093 {
         Routes(int N) {
             lists = new ArrayList<>(N);
             for (int i = 0; i < N; i++) {
-                lists.add(new HashMap<>());
+                lists.add(new HashMap<Integer, Integer>());
             }
         }
 

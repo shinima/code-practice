@@ -63,7 +63,9 @@ public class Problem_1067 {
         // Traverse to set result.
         traverse(context, nodes[0]);
 
-        context.result.forEach(System.out::println);
+        for (String s : context.result) {
+            System.out.println(s);
+        }
     }
 
     private static void traverse(Context context, Node node) {

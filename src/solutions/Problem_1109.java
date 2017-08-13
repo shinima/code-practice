@@ -74,7 +74,9 @@ public class Problem_1109 {
             visitedCount++;
             visited[next] = true;
 
-            manager.getRoutes(next).forEach(heap::offer);
+            for (Route foo : manager.getRoutes(next)) {
+                heap.offer(foo);
+            }
         }
         System.out.println(cost);
     }

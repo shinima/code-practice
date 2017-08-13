@@ -39,7 +39,7 @@ public class Problem_1081 {
 
         List<Map<Integer, Integer>> routes = new ArrayList<>(N);
         for (int i = 0; i < N; i++) {
-            routes.add(new HashMap<>());
+            routes.add(new HashMap<Integer, Integer>());
         }
 
         for (int i = 0; i < M; i++) {
