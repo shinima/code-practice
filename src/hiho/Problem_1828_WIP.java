@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Problem_1828_WA {
+public class Problem_1828_WIP {
   public static void main(String[] args) {
     String input = "2 2\n" +
       "S#\n" +
