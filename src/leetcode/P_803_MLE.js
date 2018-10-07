@@ -1,13 +1,13 @@
-function hitBricks(grid: number[][], hits: number[][]): number[] {
+function hitBricks(grid, hits) {
   const M = grid.length
   const N = grid[0].length
-  const left = (t: number) => (t % N > 0 ? t - 1 : -1)
-  const right = (t: number) => (t % N < N - 1 ? t + 1 : -1)
-  const up = (t: number) => (Math.floor(t / N) > 0 ? t - N : -1)
-  const down = (t: number) => (Math.floor(t / N) < M - 1 ? t + N : -1)
+  const left = t => (t % N > 0 ? t - 1 : -1)
+  const right = t => (t % N < N - 1 ? t + 1 : -1)
+  const up = t => (Math.floor(t / N) > 0 ? t - N : -1)
+  const down = t => (Math.floor(t / N) < M - 1 ? t + N : -1)
   const directions = [left, right, up, down]
 
-  const result: number[] = []
+  const result = []
 
   for (const [hitRow, hitCol] of hits) {
     if (grid[hitRow][hitCol] === 0) {
@@ -20,7 +20,7 @@ function hitBricks(grid: number[][], hits: number[][]): number[] {
 
   return result
 
-  function calculateDropCount(hitT: number) {
+  function calculateDropCount(hitT) {
     let totalCount = 0
     for (const dir of directions) {
       const start = dir(hitT)
@@ -39,14 +39,12 @@ function hitBricks(grid: number[][], hits: number[][]): number[] {
     return totalCount
   }
 
-  function findDropSet(start: number) {
-    const set = new Set<number>()
-
-    let frontier = new Set<number>()
+  function findDropSet(start) {
+    const set = new Set()
+    let frontier = new Set()
     frontier.add(start)
-
     while (frontier.size > 0) {
-      const nextFrontier = new Set<number>()
+      const nextFrontier = new Set()
       for (const t of frontier) {
         if (Math.floor(t / N) === 0) {
           return null
@@ -61,11 +59,10 @@ function hitBricks(grid: number[][], hits: number[][]): number[] {
       }
       frontier = nextFrontier
     }
-
     return set
   }
 
-  function get(t: number) {
+  function get(t) {
     if (t === -1) {
       return 0
     }
