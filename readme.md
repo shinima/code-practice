@@ -5,3 +5,5 @@
 `src/algorithms` 文件夹内放了一些常见算法/数据结构的实现代码（目前还比较少）。
 
 `src/leetcode` 文件夹内放了 leetcode 的刷题记录。
+
+`src/codewars` 文件夹放了 codewars 的刷题记录。
