@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "code-practice",
+  "version": "1.0.0",
+  "repository": "https://github.com/shinima/hihocoder-solutions.git",
+  "author": "feichao.sfc <feichao.sfc@alibaba-inc.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
